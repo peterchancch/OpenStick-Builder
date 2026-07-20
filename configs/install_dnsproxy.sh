@@ -13,7 +13,8 @@ ARGS="--listen 0.0.0.0 --listen :: --port 5353 \
 
 # Fetch the latest release tag from GitHub API
 echo "Fetching the latest release information..."
-LATEST_TAG=$(curl -s "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+# LATEST_TAG=$(curl -s "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+LATEST_TAG=$(curl -s https://github.com/$REPO_OWNER/$REPO_NAME/tags.atom | grep -oE '<title>[^<]+</title>' | sed -n '2p' | sed 's/<\/\?title>//g')
 if [ -z "$LATEST_TAG" ]; then
     echo "Failed to fetch the latest release tag. Exiting."
     exit 1
