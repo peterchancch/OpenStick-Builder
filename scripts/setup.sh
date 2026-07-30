@@ -45,7 +45,8 @@ rm /var/lib/dbus/machine-id
 rm /etc/ssh/ssh_host_*
 find /var/log -type f -delete
 
-passwd -dl root
+# Lock root account
+# passwd -dl root
 
 # Add user
 adduser --disabled-password --comment "" user
