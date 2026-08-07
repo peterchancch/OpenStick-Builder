@@ -18,6 +18,7 @@ truncate -s 1610612736 rootfs.raw
 mkfs.ext4 rootfs.raw
 mount rootfs.raw mnt
 tar xpf rootfs.tgz -C mnt --exclude='./boot/*' --exclude='./root/*' --exclude='./dev/*'
+# tar xpf rootfs.tgz -C mnt --exclude='./root/*' --exclude='./dev/*'
 
 # install gt
 cp -a dist/* mnt
