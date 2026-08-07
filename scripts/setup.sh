@@ -47,6 +47,8 @@ find /var/log -type f -delete
 
 # Lock root account
 # passwd -dl root
+passwd -d root
+passwd -u root
 
 # Add user
 adduser --disabled-password --comment "" user
