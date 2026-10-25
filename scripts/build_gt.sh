@@ -35,6 +35,7 @@ PKG_CONFIG_PATH=${CHROOT}/usr/lib/pkgconfig:${CHROOT}/usr/lib/aarch64-linux-gnu/
         -DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM=NEVER \
         -DCMAKE_SYSROOT=${CHROOT} \
         -DCMAKE_SYSTEM_PROCESSOR=aarch64 \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
         -S ${SRCDIR}/gt/source \
         -B build
 
