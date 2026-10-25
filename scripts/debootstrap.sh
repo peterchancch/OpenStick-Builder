@@ -9,6 +9,8 @@ rm -rf ${CHROOT}
 debootstrap --foreign --arch arm64 \
     --keyring /usr/share/keyrings/debian-archive-keyring.gpg ${RELEASE} ${CHROOT}
 
+ln -s /usr/bin/qemu-aarch64 /usr/bin/qemu-aarch64-static
+
 cp $(which qemu-aarch64-static) ${CHROOT}/usr/bin
 
 chroot ${CHROOT} qemu-aarch64-static /bin/bash /debootstrap/debootstrap --second-stage
